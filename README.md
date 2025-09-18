@@ -1,2 +1,2 @@
 # Flask Sqlite demo
-Flæask og sqlite3 demo i klassen
+Flask og sqlite demo i klassen
