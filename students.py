@@ -3,14 +3,14 @@ import sqlite3
 def create():
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS students(id INTEGER, name TEXT)")
-        cur.execute("INSERT INTO students VALUES(1, 'Claus')")
-        cur.execute("INSERT INTO students VALUES(2, 'Pia')")
-        cur.execute("INSERT INTO students VALUES(3, 'Hans')")
+        cur.execute("CREATE TABLE IF NOT EXISTS students(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)")
+        cur.execute("INSERT INTO students (name) VALUES(?)", ('Claus',))
+        cur.execute("INSERT INTO students (name) VALUES('Pia')")
+        cur.execute("INSERT INTO students (name) VALUES('Hans')")
         return None
 
 
-def read():
+def read_all():
 
     stundents = []
     with sqlite3.connect('database.db') as conn:
