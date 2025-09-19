@@ -1,8 +1,11 @@
 from flask import Flask, jsonify
 from data_dict_simple import students
 from data_dict import random_users
+from students import create, read
 
 app = Flask(__name__)
+
+create()
 
 @app.route('/')
 def index():
@@ -10,11 +13,11 @@ def index():
 
 @app.route('/api/students', methods=['GET'])
 def read():
-    return jsonify(random_users)
+    return jsonify(read())
 
 @app.route('/api/students', methods=['POST'])
 def create():
-    random_users.append({'id':3, 'name': 'Pia'})
+    #random_users.append({'id':3, 'name': 'Pia'})
     return jsonify(None)
 
 app.run()
